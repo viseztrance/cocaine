@@ -78,8 +78,9 @@ module Cocaine
     end
 
     def shell_quote(string)
-      return "" if string.nil?
-      if self.class.unix?
+      if string.nil?
+        ""
+      elsif self.class.unix?
         if string.empty?
           "''"
         else
